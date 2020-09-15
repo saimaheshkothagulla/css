@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example</title>
+</head>
+<style>
+    div{
+        text-align: center;
+        font-size: xx-large;
+        font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    }
+</style>
+<body>
+
+<div id="div3" style="background-color: #0000CC;width: 300px;height:100px;left: 80px;top:50px;
+
+position: relative;z-index: 3">C
+
+</div>
+<div id="div2" style="background-color: #99ccff;width: 300px;height:100px;left: 40px;
+
+position: relative;z-index: 2";>
+python
+</div>
+<div id="div1" style="background-color: #ff80b3;width: 300px;height:100px;top: -50px;
+
+position: relative;z-index: 1">mySql
+
+</div>
+<button type="button" onclick="rotate()" id="butt" style="width: 100px;height: 20px;color: #8e1c58;background-color: whitesmoke">rotate</button>
+</body>
+<script>
+    function rotate() {
+
+
+    var div1=document.getElementById("div1");
+    var div2=document.getElementById("div2");
+    var div3=document.getElementById("div3");
+
+    if(div1.style.zIndex==="3")
+    {
+        div1.style.zIndex=1;
+        div2.style.zIndex=3;
+        div3.style.zIndex=2;
+    }
+    else if(div2.style.zIndex==="3")
+    {
+        div1.style.zIndex=3;
+        div2.style.zIndex=2;
+        div3.style.zIndex=1;
+    }
+    else(div3.style.zIndex==="3")
+    {
+        div1.style.zIndex=2;
+        div2.style.zIndex=3;
+        div3.style.zIndex=1;
+    }
+
+    }
+
+</script>
+</html>

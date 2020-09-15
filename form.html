@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign up</title>
+
+    <style>
+
+        body{
+            background-color:blueviolet;
+        }
+        input{
+            border:1px solid #ff80b3;
+            margin-bottom: 7px;
+            line-height: 1.5em;
+            border-left-width: 20px;
+            width: 240px;
+            height:30px;
+
+        }
+
+
+
+        input{
+            margin-bottom: 5px;
+            margin-top:2px;
+            
+        }
+        table{
+            margin-top:200px;
+            background-color: floralwhite;
+            padding-bottom: 30px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top:30px;
+            border-radius: 2%;
+
+
+        }
+        #signup,#signin{
+            text-align: center;
+            font-family: "Droid Serif", "DejaVu Serif", "STIX", serif;
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+       #subbutton{
+           text-align:right;
+
+       }
+        button{
+            background-color: forestgreen;
+            text-align: center;
+            border-radius: 2px;
+            width: 60px;
+            height: 30px;
+            margin-top:18px;
+        }
+
+        
+    </style>
+</head>
+
+<script>
+
+    function check() {
+        var pass=document.getElementById("pass").value;
+    var cre_pass=document.getElementById("cre_pass").value;
+    var email=document.getElementById("email").value;
+    var reg=/([a-zA-Z0-9\._]{6,30})@([a-z]{3,9}).([a-z]{2,5})(.[a-z]{2,5})?/;
+    if(pass.length>=7){
+        if(reg.test(email) && pass === cre_pass)
+        {
+
+            document.getElementById("error").style.visibility="hidden";
+         return true;
+        }
+        else{
+            document.getElementById("error").style.visibility="visible";
+            document.getElementById("error").style.color="red";
+            return false;
+
+        }}
+    else{
+        document.getElementById('error').innerText="password length must be greater then 7."
+        document.getElementById("error").style.visibility="visible";
+        document.getElementById("error").style.color="red";
+        return false
+    }
+
+
+    }
+    function login() {
+        var email=document.getElementById("login_email").value;
+        var pass=document.getElementById("login_password").value;
+        var reg=/([a-zA-Z0-9\._]{6,30})@([a-z]{3,9}).([a-z]{2,5})(.[a-z]{2,5})?/;
+        if(reg.test(email) && pass.length>=7)
+        {
+            document.getElementById("login_error").style.visibility="hidden";
+            return true;
+        }
+        else{
+
+            document.getElementById("login_error").style.visibility="visible";
+            document.getElementById("login_error").style.color="red";
+            return false;
+        }
+
+    }
+</script>
+<body>
+<center>
+    <div id="signup_div">
+    <form onsubmit="return check()" action="home.html">
+        <table>
+            <tr>
+                <td id="signup"><bold>sign up</bold></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>email:</label><br>
+                      <input type="text" required="true" id="email" placeholder="email" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                     <label>create password:</label><br>
+                    <input id="pass" type="password" required="true" placeholder="create password">
+
+                </td>
+            </tr>
+            <tr>
+                <td id="crepass">
+                     <label>retype password:</label><br>
+                    <input type="password" id="cre_pass" required="true"  placeholder="retype password">
+                </td>
+            </tr>
+            <tr>
+                <td id="subbutton">
+
+                        <button value="submitbutton" name="button" id="submit" type="submit">submit</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="error" style="visibility: hidden">invalid email\no matching of passwords</label>
+                </td>
+            </tr>
+            </table>
+    </form>
+    </div>
+<div id="login_div">
+    <form onsubmit="return login()" action="home.html">
+        <table>
+            <tr>
+                <td id="signin"><bold>sign in</bold></td>
+            </tr>
+            <tr>
+                <td><label>email:</label><br>
+                    <input type="text" id="login_email" placeholder="enter email" required>
+                </td>
+            </tr>
+            <tr>
+                <td><label>email:</label><br>
+                    <input type="password" id="login_password"placeholder="enter password" required>
+                </td>
+            </tr>
+            <tr>
+                <td><button type="submit">login</button>
+                </td>
+            </tr>
+            <tr>
+                <td><label style="visibility: hidden" id="login_error">invalid email or invalid password</label>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</center>
+</body>
+</html>
